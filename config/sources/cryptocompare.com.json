@@ -1,0 +1,10 @@
+{
+  "fsyms": [
+    "BTC", "LINK", "MKR"
+  ],
+  "tsyms": [
+    "USD", "EUR", "ETH", "LTC"
+  ],
+  "time": 60,
+  "handler": "cryptocompare"
+}
