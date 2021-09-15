@@ -9,6 +9,7 @@ app.use(logger('dev'));
 
 // Routes
 
+// NOTE: думаю cтоит использовать какое-нибудь готовое решение, например routing-controllers
 const routesFolder = path.resolve(path.dirname(`${__dirname}`), 'routes')
 fs.readdirSync(routesFolder).forEach(file => {
   if( file.substr(-3) === '.js' )

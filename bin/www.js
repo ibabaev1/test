@@ -18,14 +18,15 @@ const express = require('./express')
 
 const port = normalizePort(process.env.PORT || '4000');
 if(typeof port === 'string') {
-  fs.unlinkSync(port);
+  fs.unlinkSync(port); // NOTE: что тут удаляется?
 }
-express.set('port', port);
+express.set('port', port); // NOTE: normalizePort может вернуть false
 
 /**
  * Create HTTP server.
  */
 
+// NOTE: зачем вручную создавать сервер, express сам умеет это делать
 const server = http.createServer(express);
 
 /**
@@ -39,6 +40,7 @@ server.on('error', onError);
  * Normalize a port into a number, string, or false.
  */
 
+// NOTE: зачем возвращать порт, когда это не число или оно отрицательное?
 function normalizePort(val) {
   const port = parseInt(val, 10);
 

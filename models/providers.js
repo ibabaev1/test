@@ -19,3 +19,5 @@ Providers.sync({alter: true})
 
 
 module.exports = Providers
+
+// NOTE: для чего эта таблица, почему бы не хранить значение в таблице Rates?

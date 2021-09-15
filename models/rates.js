@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize'),
   path = require('path'),
-  sequelize = require('.' + path.sep + 'db'),
+  sequelize = require('.' + path.sep + 'db'), // NOTE: проще было бы указать / явно
   { QueryTypes } = require('sequelize');
 
 class Rates extends Sequelize.Model {
@@ -37,9 +37,9 @@ class Rates extends Sequelize.Model {
       logging: false//console.log
     })
 
-    if(rates) {
+    if(rates) { // NOTE: query может вернуть undefined?
       rates.forEach(el => {
-        el.rate = parseFloat(el.rate)
+        el.rate = parseFloat(el.rate) //NOTE: он разве строку вернет, тип то decimal?
       })
     }
 
@@ -66,7 +66,7 @@ Rates.init({
     ]
   })
 
-Rates.sync({alter: true})
+Rates.sync({alter: true}) // NOTE: лучше пользоваться миграциями
 
 
 module.exports = Rates
